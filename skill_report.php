@@ -8,6 +8,8 @@
     $conn = mysql_connect($dbhost, $dbuser, $dbpass) or die('Error with MySQL connection');
     mysql_query("SET NAMES 'utf8'");
     mysql_select_db($dbname);
+    $count=$_REQUEST['count'];
+    $start=$_REQUEST['start'];
     // $function = $_REQUEST['function'];
     // $email = $_REQUEST["email"];
     // $password = $_REQUEST["password"];
@@ -34,10 +36,11 @@
     // else if($function==2){ //query friends
         // $sql = "SELECT * FROM `debt_friends` WHERE Email = '{$email}'";
         // $result = mysql_query($sql) or die('MySQL query error');
-        
+        if($count==''){$count=10;}
+        if($start==''){$start=1;}
         $result_json=array();
         // while($row = mysql_fetch_array($result)){
-        for($i=1;$i<=10;$i++){
+        for($i=$start;$i<($start+$count);$i++){
             $sql = "SELECT * FROM `stoneage_skill` WHERE id = '{$i}'";
             $result = mysql_query($sql) or die('MySQL query error');
             $row = mysql_fetch_array($result);
