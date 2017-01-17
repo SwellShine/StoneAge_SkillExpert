@@ -9,11 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-<<<<<<< Updated upstream
-    <title>Starter Template for Bootstrap</title>
-=======
     <title>StoneAge - SkillExpert</title>
->>>>>>> Stashed changes
 
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,52 +33,6 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">StoneAge - SkillExpert</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-<<<<<<< Updated upstream
-=======
-            <li><a href="./dashboard">Dashboard</a></li>
->>>>>>> Stashed changes
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-<<<<<<< Updated upstream
-
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-=======
-
-      <div class="starter-template">
-        <h1>We know what you thinking about Skills in Stone Age：Begins</h1>
-        <p class="lead">Use this tool as a way to quickly find skills or pets you want.<br> All you need is to search what you're thinking about.</p>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div><!-- /input-group -->
           <!--jsontest-->
           <h2 id="petinfo"></h2>
           
@@ -96,20 +46,21 @@
               if (this.readyState == 4 && this.status == 200) {
                   myObj = JSON.parse(this.responseText);
                   
-                  document.getElementById("petinfo").innerHTML = "Here you go!";
+                  document.getElementById("petinfo").innerHTML = "Here you go! For 1~10";
                   //document.getElementById("demo").innerHTML = "<div class='row'>";
                                                             
                   for (i=0 ; i < Object.keys(myObj.result).length; i++) { 
-                      document.getElementById("demo").innerHTML +=
-                      "<div class='col-sm-12 col-md-6 col-lg-3'><p>寵物名："+myObj["result"][i]["pet_name"]+
-                      "</p><p>主動技耗氣："+myObj["result"][i]["mp_skill1"]+
-                      "</p><p>主動技："+myObj["result"][i]["skill1"]+
-                      "</p><p>被動技1："+myObj["result"][i]["skill2"]+
-                      "</p><p>被動技2："+myObj["result"][i]["skill3"]+
-                      "</p><p>被動技3："+myObj["result"][i]["skill4"]+
-                      "</p></div>";
+                      document.getElementById("demo").innerHTML +="<div class='col-sm-12 col-md-6 col-lg-3'><p>寵物名："+myObj["result"][i]["pet_name"]+
+                                                                  "</p><p>主動技耗氣："+myObj["result"][i]["mp_skill1"]+
+                                                                  "</p><p>主動技："+myObj["result"][i]["skill1"]+
+                                                                  "</p><p>被動技1："+myObj["result"][i]["skill2"]+
+                                                                  "</p><p>被動技2："+myObj["result"][i]["skill3"]+
+                                                                  "</p><p>被動技3："+myObj["result"][i]["skill4"]+
+                                                                  "</p></div>";
+                      
                   }
                   //document.getElementById("demo").innerHTML += "</div>";
+                  document.getElementById("demo").innerHTML += myObj["name"]["stan"];
                   // document.getElementByClassName("")
               }
           };
@@ -118,12 +69,6 @@
           
           </script>
           <!--end of jsontest-->
-
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
->>>>>>> Stashed changes
-
-    </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
