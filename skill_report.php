@@ -41,7 +41,7 @@
             $sql = "SELECT * FROM `stoneage_skill` WHERE id = '{$i}'";
             $result = mysql_query($sql) or die('MySQL query error');
             $row = mysql_fetch_array($result);
-            array_push($result_json,array('pet_name'=>$row['title'],'mp_skill1'=>$row['sp1'],'skill1'=>$row['detail1'],'skill2'=>$row['detail2'],'skill3'=>$row['detail3'],'skill4'=>$row['detail3']));
+            array_push($result_json,array('pet_name'=>$row['title'],'mp_skill1'=>$row['sp1'],'skill1'=>$row['detail1'],'skill2'=>$row['detail2'],'skill3'=>$row['detail3'],'skill4'=>$row['detail4']));
         }
             
         // }
@@ -57,8 +57,7 @@
         // }
         //print_r($result_json);
         //echo array("result"=>$result_json),"";
-        echo json_encode(array("result"=>$result_json)),"";
-        //echo json_encode($result_json);
+        echo json_encode(array("result"=>$result_json,"name"=>"stan")),"";
 
     // } 
     // mysql_close($conn);
