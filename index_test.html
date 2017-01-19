@@ -34,6 +34,7 @@
   <body>
 
           <!--jsontest-->
+<<<<<<< HEAD
           <!-- /input-group -->
           <div class="input-group">
             <input type="text" class="form-control" id="searchkey" placeholder="Search for...">
@@ -42,21 +43,36 @@
             </span>
           </div>
           
+=======
+>>>>>>> origin/master
           <h2 id="petinfo"></h2>
           
           <div class="row" id="demo"></div>
           
+<<<<<<< HEAD
           <!--script>
           var xmlhttp2 = new XMLHttpRequest();
           function ShowDemoOnetoTen() {
               
               xmlhttp2.onreadystatechange() = function(){
                   if (this.readyState == 4 && this.status == 200) {
+=======
+          <script>
+          
+          var xmlhttp = new XMLHttpRequest();
+          
+          xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+>>>>>>> origin/master
                   myObj = JSON.parse(this.responseText);
                   
                   document.getElementById("petinfo").innerHTML = "Here you go! For 1~10";
                   //document.getElementById("demo").innerHTML = "<div class='row'>";
+<<<<<<< HEAD
                   document.getElementById("demo").innerHTML = "";                                          
+=======
+                                                            
+>>>>>>> origin/master
                   for (i=0 ; i < Object.keys(myObj.result).length; i++) { 
                       document.getElementById("demo").innerHTML +="<div class='col-sm-12 col-md-6 col-lg-3'><p>寵物名："+myObj["result"][i]["pet_name"]+
                                                                   "</p><p>主動技耗氣："+myObj["result"][i]["mp_skill1"]+
@@ -68,6 +84,7 @@
                       
                   }
                   //document.getElementById("demo").innerHTML += "</div>";
+<<<<<<< HEAD
                   //document.getElementById("demo").innerHTML += myObj["name"]["stan"];
                   document.getElementById("demo").innerHTML += myObj["name"];
                   // document.getElementByClassName("")
@@ -117,6 +134,17 @@
           
           </script>
           <!--end of search-->
+=======
+                  document.getElementById("demo").innerHTML += myObj["name"]["stan"];
+                  // document.getElementByClassName("")
+              }
+          };
+          xmlhttp.open("GET", "skill_report.php", true);
+          xmlhttp.send();
+          
+          </script>
+          <!--end of jsontest-->
+>>>>>>> origin/master
 
 
     <!-- Bootstrap core JavaScript

@@ -21,6 +21,7 @@
     //     $sql = "SELECT * FROM `debt_accounts` WHERE Email = '{$email}'";
     //     $result = mysql_query($sql) or die('MySQL query error');
     //     if(mysql_num_rows($result)== 0){
+<<<<<<< HEAD
        //      echo '{"login_result":"There is no such account."}';
     //     }
     //     else{
@@ -31,6 +32,18 @@
     //         else{
        //           $name = $row['Name'];
     //             echo '{"login_result":"',$name,',You have logged in Chain Chain Lai!!!!"}';    
+=======
+	   //      echo '{"login_result":"There is no such account."}';
+    //     }
+    //     else{
+    // 	    $row = mysql_fetch_array($result);
+ 	 	//     if($row['Password']!=$password){
+ 	  //  	        echo '{"login_result":"Password is incorrect"}';
+    //         }
+    //         else{
+ 	  //           $name = $row['Name'];
+    //             echo '{"login_result":"',$name,',You have logged in Chain Chain Lai!!!!"}';	
+>>>>>>> origin/master
     //         }
     //     }
     // }
