@@ -10,6 +10,7 @@
     mysql_select_db($dbname);
     $count=$_REQUEST['count'];
     $start=$_REQUEST['start'];
+    $key=$_REQUEST['key'];
     // $function = $_REQUEST['function'];
     // $email = $_REQUEST["email"];
     // $password = $_REQUEST["password"];
@@ -20,16 +21,16 @@
     //     $sql = "SELECT * FROM `debt_accounts` WHERE Email = '{$email}'";
     //     $result = mysql_query($sql) or die('MySQL query error');
     //     if(mysql_num_rows($result)== 0){
-	   //      echo '{"login_result":"There is no such account."}';
+       //      echo '{"login_result":"There is no such account."}';
     //     }
     //     else{
-    // 	    $row = mysql_fetch_array($result);
- 	 	//     if($row['Password']!=$password){
- 	  //  	        echo '{"login_result":"Password is incorrect"}';
+    //         $row = mysql_fetch_array($result);
+          //     if($row['Password']!=$password){
+       //              echo '{"login_result":"Password is incorrect"}';
     //         }
     //         else{
- 	  //           $name = $row['Name'];
-    //             echo '{"login_result":"',$name,',You have logged in Chain Chain Lai!!!!"}';	
+       //           $name = $row['Name'];
+    //             echo '{"login_result":"',$name,',You have logged in Chain Chain Lai!!!!"}';    
     //         }
     //     }
     // }
@@ -40,15 +41,16 @@
         if($start==''){$start=1;}
         $result_json=array();
         // while($row = mysql_fetch_array($result)){
-        for($i=$start;$i<($start+$count);$i++){
-            $sql = "SELECT * FROM `stoneage_skill` WHERE id = '{$i}'";
-            $result = mysql_query($sql) or die('MySQL query error');
-            $row = mysql_fetch_array($result);
+        //for($i=$start;$i<($start+$count);$i++){
+        $sql = "SELECT * FROM `stoneage_skill` WHERE detail1 LIKE '%{$key}%' OR detail2 LIKE '%{$key}%' OR detail3 LIKE '%{$key}%' OR detail4 LIKE '%{$key}%' LIMIT {$start},{$count}";
+        $result = mysql_query($sql) or die('MySQL query error');
+        while($row = mysql_fetch_array($result)){
             array_push($result_json,array('pet_name'=>$row['title'],'mp_skill1'=>$row['sp1'],'skill1'=>$row['detail1'],'skill2'=>$row['detail2'],'skill3'=>$row['detail3'],'skill4'=>$row['detail4']));
         }
+        //}
             
         // }
-        // $sql = "SELECT * FROM `debt_friends_registered` WHERE Email = '{$email}'";
+        // $sql = "SELECT * FROM `debt_friends_registered` WHERE Emai-l = '{$email}'";
         // $result = mysql_query($sql) or die('MySQL query error');
         
         // while($row = mysql_fetch_array($result)){

@@ -70,17 +70,17 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div><!-- /input-group -->
-          <!--jsontest-->
+            <input type="text" class="form-control" id="searchkey" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick="loadDoc()">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          
           <h2 id="petinfo"></h2>
           
           <div class="row" id="demo"></div>
-          
-          <script>
+          <!--jsontest-->
+          <!--script>
           
           var xmlhttp = new XMLHttpRequest();
           
@@ -108,15 +108,98 @@
           xmlhttp.open("GET", "skill_report.php", true);
           xmlhttp.send();
           
-          </script>
+          </script-->
           <!--end of jsontest-->
+          
 
         </div><!-- /.col-lg-6 -->
       </div><!-- /.row -->
 
     </div><!-- /.container -->
 
+<script>
 
+var myObj;
+
+function loadDoc(){
+    var obj, dbParam, xmlhttp, x, txt = "";
+    xmlhttp = new XMLHttpRequest();
+    
+    dbParam = "key="+document.getElementById("searchkey").value+"&start=1&count=30"
+    xmlhttp.onreadystatechange = function(){
+        
+        if(this.readyState == 4 && this.status == 200){
+            //document.getElementById("demo").innerHTML = this.responseText;
+            myObj = JSON.parse(this.responseText);
+            document.getElementById("demo").innerHTML ="";
+            
+            if(myObj.result.length==0){
+                document.getElementById("petinfo").innerHTML = "No Such key words,Try another one.";
+            }
+                else{
+                    document.getElementById("petinfo").innerHTML = "Here you go!";
+                }
+                                                      
+            for (i=0 ; i < Object.keys(myObj.result).length; i++) { 
+                document.getElementById("demo").innerHTML +=
+                /*"<div class='col-sm-12 col-md-6 col-lg-3'><p>寵物名："+myObj["result"][i]["pet_name"]+
+                "</p><p>主動技耗氣："+myObj["result"][i]["mp_skill1"]+
+                "</p><p>主動技："+myObj["result"][i]["skill1"]+
+                "</p><p>被動技1："+myObj["result"][i]["skill2"]+
+                "</p><p>被動技2："+myObj["result"][i]["skill3"]+
+                "</p><p>被動技3："+myObj["result"][i]["skill4"]+
+                "</p></div>";
+                */
+                "<div class='col-sm-6 col-md-4'>"+
+                  "<div class='thumbnail'>"+
+                    "<img src='' alt=''>"+
+                    "<div class='caption'>"+
+                      "<h3>"+myObj["result"][i]["pet_name"]+"</h3>"+
+                     "<ul class='nav nav-tabs nav-justified'>"+
+                      "<li role='presentation' class='active' onclick='SkillDetailsTabHandler("+i+")'><a>主動技</a></li>"+
+                      "<li role='presentation' onclick='SkillDetailsTabHandler("+i+")'><a>被動技1</a></li>"+
+                      "<li role='presentation' onclick='SkillDetailsTabHandler("+i+")'><a>被動技2</a></li>"+
+                      "<li role='presentation' onclick='SkillDetailsTabHandler("+i+")'><a>被動技3</a></li>"+
+                      "</ul>"+
+                     /***** btn tab 
+                     "<div class='btn-group btn-group-justified' role='group' aria-label=''>"+
+                        "<div class='btn-group' role='group'>"+
+                          "<button type='button' class='btn btn-success' onclick='SkillDetailsTabHandler()'>主動技</button>"+
+                        "</div>"+
+                        "<div class='btn-group' role='group'>"+
+                          "<button type='button' class='btn btn-default' onclick='SkillDetailsTabHandler()'>被動技1</button>"+
+                        "</div>"+
+                        "<div class='btn-group' role='group'>"+
+                         "<button type='button' class='btn btn-default' onclick='SkillDetailsTabHandler()'>被動技2</button>"+
+                        "</div>"+
+                        "<div class='btn-group' role='group'>"+
+                         "<button type='button' class='btn btn-default' onclick='SkillDetailsTabHandler()'>被動技3</button>"+
+                        "</div>"+
+                      "</div>"+
+                      end of btn tab ****/
+                      "<p id='skilldetail"+i+"'>"+
+                      "主動技耗氣："+myObj["result"][i]["mp_skill1"]+
+                      "</p><p>"+myObj["result"][i]["skill1"]+
+                      "</p>"
+                      //<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    "</div>"+
+                  "</div>"
+                  
+                 
+            }
+        }
+    }
+    xmlhttp.open("GET", "skill_report.php?"+dbParam, true);
+    xmlhttp.send();
+};
+
+function SkillDetailsTabHandler(skillnote){
+    document.getElementById("petinfo").innerHTML=skillnote;
+    document.getElementById("skilldetail"+skillnote).innerHTML = "<p>"+myObj["result"][skillnote]["skill"+skillnote]+"</p>"
+    //Not Complete
+}
+
+</script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
