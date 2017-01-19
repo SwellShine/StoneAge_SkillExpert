@@ -9,15 +9,8 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< Updated upstream
->>>>>>> origin/master
     <title>Starter Template for Bootstrap</title>
-=======
-    <title>StoneAge - SkillExpert</title>
->>>>>>> Stashed changes
 
     <title>StoneAge - SkillExpert</title>
 
@@ -58,16 +51,9 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-<<<<<<< HEAD
 
             <li><a href="./dashboard">Dashboard</a></li>
 
-=======
-<<<<<<< Updated upstream
-=======
-            <li><a href="./dashboard">Dashboard</a></li>
->>>>>>> Stashed changes
->>>>>>> origin/master
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -76,13 +62,11 @@
     </nav>
 
     <div class="container">
-<<<<<<< Updated upstream
 
       <div class="starter-template">
         <h1>We know what you thinking about Skills in Stone Age：Begins</h1>
         <p class="lead">Use this tool as a way to quickly find skills or pets you want.<br> All you need is to search what you're thinking about.</p>
       </div>
-<<<<<<< HEAD
       <div class="row">
         <div class="col-lg-12">
           <div class="input-group">
@@ -97,28 +81,6 @@
           <div class="row" id="demo"></div>
           <!--jsontest-->
           <!--script>
-=======
-=======
-
-      <div class="starter-template">
-        <h1>We know what you thinking about Skills in Stone Age：Begins</h1>
-        <p class="lead">Use this tool as a way to quickly find skills or pets you want.<br> All you need is to search what you're thinking about.</p>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div><!-- /input-group -->
-          <!--jsontest-->
-          <h2 id="petinfo"></h2>
-          
-          <div class="row" id="demo"></div>
-          
-          <script>
->>>>>>> origin/master
           
           var xmlhttp = new XMLHttpRequest();
           
@@ -146,21 +108,12 @@
           xmlhttp.open("GET", "skill_report.php", true);
           xmlhttp.send();
           
-<<<<<<< HEAD
           </script-->
           <!--end of jsontest-->
           
 
         </div><!-- /.col-lg-6 -->
       </div><!-- /.row -->
-=======
-          </script>
-          <!--end of jsontest-->
-
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
->>>>>>> Stashed changes
->>>>>>> origin/master
 
     </div><!-- /.container -->
 
@@ -243,7 +196,6 @@ function loadDoc(){
 function SkillDetailsTabHandler(skillnote){
     document.getElementById("petinfo").innerHTML=skillnote;
     document.getElementById("skilldetail"+skillnote).innerHTML = "<p>"+myObj["result"][skillnote]["skill"+skillnote]+"</p>"
-    //Not Complete
 }
 
 </script>
